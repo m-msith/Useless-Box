@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uselessbox;
+package com.mycompany.useless.box;
 
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -37,14 +37,14 @@ public class MainMenu extends ConstantScene{
         startBtn.setText("14: Start the Game Already'");
         startBtn.setOnAction((ActionEvent event) -> {
             /* Start the Game by setting the main game stage */
-            UselessBox.GetPrimaryStage().setScene(MainGame.GetMainGame().GetVisibleScene());
+            App.GetPrimaryStage().setScene(MainGame.GetMainGame().GetVisibleScene());
         });
         
         /* Exit Game */
         Button exitBtn = new Button();
         exitBtn.setText("DIE DIE DIE");
         exitBtn.setOnAction((ActionEvent event) -> {
-            UselessBox.GetPrimaryStage().close();
+            App.GetPrimaryStage().close();
         });
         
         root.getChildren().add(startBtn);        

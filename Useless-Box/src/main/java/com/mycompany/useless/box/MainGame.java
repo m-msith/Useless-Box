@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uselessbox;
+package com.mycompany.useless.box;
 
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
@@ -42,7 +42,7 @@ class MainGame extends ConstantScene{
             System.out.println(kp.getCode());
             
             if(kp.getCode() == KeyCode.ESCAPE){
-                UselessBox.GetPrimaryStage().setScene(MainMenu.GetMainMenu().GetVisibleScene());
+                App.GetPrimaryStage().setScene(MainMenu.GetMainMenu().GetVisibleScene());
             }
             
             if(kp.getCode() == KeyCode.RIGHT){
