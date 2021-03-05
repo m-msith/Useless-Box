@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.useless.box;
 
 import javafx.event.ActionEvent;
@@ -23,6 +18,7 @@ public class MainMenu extends ConstantScene{
     /* There is only one main stage */
     private static MainMenu MM_INST = null;
     private final Scene MM;
+    private GameLevel CurrentLevel;
     
     /**
      * Create the MainMenu object that allows the user to start the game or to
@@ -34,23 +30,29 @@ public class MainMenu extends ConstantScene{
         
         /* Start Game */
         Button startBtn = new Button();
-        startBtn.setText("14: Start the Game Already'");
+        startBtn.setText("PLAY");
         startBtn.setOnAction((ActionEvent event) -> {
-            /* Start the Game by setting the main game stage */
-            App.GetPrimaryStage().setScene(MainGame.GetMainGame().GetVisibleScene());
+            /* Start the Game by setting the main game stage, or continue if 
+            it exists */
+            if(CurrentLevel == null){
+                CurrentLevel = new GameLevel();
+            }else{
+                App.GetPrimaryStage().setScene(CurrentLevel.GetVisibleScene());
+            }
+            
         });
         
         /* Exit Game */
         Button exitBtn = new Button();
-        exitBtn.setText("DIE DIE DIE");
+        exitBtn.setText("EXIT");
         exitBtn.setOnAction((ActionEvent event) -> {
             App.GetPrimaryStage().close();
         });
         
-        root.getChildren().add(startBtn);        
-        root.getChildren().add(exitBtn);
+        root.getChildren().add(exitBtn);        
+        root.getChildren().add(startBtn);
         StackPane.setAlignment(startBtn, Pos.CENTER);
-        StackPane.setAlignment(startBtn, Pos.BOTTOM_CENTER);
+        StackPane.setAlignment(exitBtn, Pos.BOTTOM_CENTER);
         
         MM = new Scene(root, 300, 250);
     }

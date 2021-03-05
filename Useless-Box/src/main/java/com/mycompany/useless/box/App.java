@@ -20,7 +20,6 @@ public class App extends Application {
         PrimStage = stage;
         
         ConstantScene ub_mm = MainMenu.GetMainMenu();
-        MainGame.GetMainGame();
         
         /* The first display shall be the main menu */ 
         PrimStage.setTitle("Useless Box!");
